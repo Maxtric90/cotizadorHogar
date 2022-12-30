@@ -1,0 +1,281 @@
+{% extends "base.html" %}
+
+{% block title %}Cotizar Hogar!{% endblock %}
+
+{% block content %}
+    <div class="row mt-3 mb-3">
+        <h1>Cotizá tu producto de hogar</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-lg-8 mt-2" >
+            <form action="cotizado/" method="POST" id="formCotizador">
+                {% csrf_token %}
+
+            <!-- Datos de vivienda -->
+            <div class="form-group">
+                
+                {{ form.non_field_errors }}
+                <div class="row p-1">
+                    <h5>Datos de la vivienda</h5>
+                    <div class="col-6">
+                        <label for="{{ form.tipoVivienda.id_for_label }}">Tipo vivienda:</label>
+                        {{ form.tipoVivienda }}
+                        {{ form.tipoVivienda.errors }}
+                    </div>
+                    <div class="col-6">
+                        <label for="{{ form.materialesConstruccion.id_for_label }}">Materiales Construcción:</label>
+                        {{ form.materialesConstruccion }}
+                        {{ form.materialesConstruccion.errors }}
+                    </div>
+                </div>
+                <div class="row p-1">
+                    <div class="col-6">
+                        <label for="{{ form.tipoVivienda.id_for_label }}">Techo:</label>
+                        {{ form.techo }}
+                        {{ form.techo.errors }}
+                    </div>
+                    <div class="col-6">
+                        <label for="{{ form.cerramiento.id_for_label }}">Cerramiento:</label>
+                        {{ form.cerramiento }}
+                        {{ form.cerramiento.errors }}
+                    </div>
+                </div>
+
+                <div class="row p-1">
+                    <div class="col-6">
+                        <label for="{{ form.CP.id_for_label }}">Código Postal:</label>
+                        {{ form.CP }}
+                        {{ form.CP.errors }}
+                    </div>
+                    <div class="col-6">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elementos de seguridad -->
+            <div class="form-group">
+                <div class="row mt-2 p-1">
+                    <h5>Elementos de seguridad</h5>
+                    <div class="col-3">
+                        <label for="{{ form.disyuntor.id_for_label }}">Disyuntor:</label>
+                        {{ form.disyuntor }}
+                        {{ form.disyuntor.errors }}
+                    </div>
+                    <div class="col-3">
+                        <label for="{{ form.alarma.id_for_label }}">Alarma:</label>
+                        {{ form.alarma }}
+                        {{ form.alarma.errors }}
+                    </div>
+                    <div class="col-3">
+                        <label for="{{ form.arlamaMonitoreo.id_for_label }}">Alarma monitoreo:</label>
+                        {{ form.arlamaMonitoreo }}
+                        {{ form.arlamaMonitoreo.errors }}
+                    </div>
+                    <div class="col-3">
+                        <label for="{{ form.vigilancia.id_for_label }}">Vigilancia:</label>
+                        {{ form.vigilancia }}
+                        {{ form.vigilancia.errors }}
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Coberturas -->
+            <div class="row mt-3 p-2">
+                <h5>Cargá tus coberturas:</h5>
+                <div class="col-6" >
+                    <div class="form-group row mt-2">
+                        {{ form.cob1_capital.errors }}
+                        <label for="cob1_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob1_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob1_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob2_capital.errors }}
+                        <label for="cob2_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob2_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob2_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob3_capital.errors }}
+                        <label for="cob3_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob3_capital.label }}</label>
+                        <div class="col-sm-6 align-items-center">
+                            {{ form.cob3_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob4_capital.errors }}
+                        <label for="cob4_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob4_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob4_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob5_capital.errors }}
+                        <label for="cob5_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob5_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob5_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob6_capital.errors }}
+                        <label for="cob6_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob6_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob6_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob7_capital.errors }}
+                        <label for="cob7_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob7_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob7_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob8_capital.errors }}
+                        <label for="cob8_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob8_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob8_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob9_capital.errors }}
+                        <label for="cob9_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob9_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob9_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob10_capital.errors }}
+                        <label for="cob10_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob10_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob10_capital }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    
+                    <div class="form-group row mt-2">
+                        {{ form.cob11_capital.errors }}
+                        <label for="cob11_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob11_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob11_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob12_capital.errors }}
+                        <label for="cob12_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob12_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob12_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob13_capital.errors }}
+                        <label for="cob13_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob13_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob13_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob14_capital.errors }}
+                        <label for="cob14_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob14_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob14_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob15_capital.errors }}
+                        <label for="cob15_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob15_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob15_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob16_capital.errors }}
+                        <label for="cob16_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob16_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob16_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob17_capital.errors }}
+                        <label for="cob17_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob17_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob17_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob18_capital.errors }}
+                        <label for="cob18_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob18_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob18_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob19_capital.errors }}
+                        <label for="cob19_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob19_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob19_capital }}
+                        </div>
+                    </div>
+                    <div class="form-group row mt-1 align-items-center">
+                        {{ form.cob20_capital.errors }}
+                        <label for="cob20_capital" class="col-sm-6 col-form-label inputCoberturas">{{ form.cob20_capital.label }}</label>
+                        <div class="col-sm-6">
+                            {{ form.cob20_capital }}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="col-sm-12 col-lg-4 pt-3" style="background-color:aliceblue; border-radius: 0 3.25rem;">
+            {% if desglosePremio == None %}
+            <h6>Complete el formulario para cotizar.</h6>
+            <input type="submit" form="formCotizador" value="Actualizar" class="btn btn-primary">
+            {% else %}
+            <div id="prueba" id="prueba">
+                <h6>Resumen cotización</h6>
+                <table class="table table-light table-striped">
+                    <tr>
+                        <td>Prima pura</td>
+                        <td>${{ desglosePremio.prima }}</td>
+                    </tr>
+                    <tr>
+                        <td>Prima tarifa</td>
+                        <td>${{ desglosePremio.prima }}</td>
+                    </tr>
+                    <tr>
+                        <td>Premio anual</td>
+                        <td>${{ desglosePremio.premio }}</td>
+                    </tr>
+                    <tr>
+                        <td>Premio mensual</td>
+                        <td>${{ desglosePremio.premio }}</td>
+                    </tr>
+                    <tr>
+                        <td>Comisión mensual</td>
+                        <td>${{ desglosePremio.comision }}</td>
+                    </tr>
+                </table>
+                <input type="submit" form="formCotizador" value="Actualizar" class="btn btn-primary">
+                <input value="Solicitar Emisión" class="btn btn-success">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if desglosePremio == None %}
+    {% else %}
+    <script>
+        prueba =document.getElementById("prueba");
+        function myFunction() {
+            prueba.style.visibility = 'hidden';
+        }
+    </script>
+    {% endif %}
+
+{% endblock %}
